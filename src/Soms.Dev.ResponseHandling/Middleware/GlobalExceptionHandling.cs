@@ -34,7 +34,7 @@ public class GlobalExceptionHandling : IMiddleware
     {
         var response = context.Response;
         response.ContentType = "application/json";
-        response.StatusCode = (int)HttpStatusCode.OK;
+        response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
         var errorResponse = new Result<bool>
         {

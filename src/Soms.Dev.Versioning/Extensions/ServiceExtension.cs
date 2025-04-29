@@ -7,7 +7,7 @@ namespace Soms.Dev.Versioning;
 
 public static class ServiceExtension
 {
-    public static IServiceCollection AddVersionsing(
+    public static IServiceCollection AddVersioning(
         this IServiceCollection services,
         Action<ApiVersionActionOptions>? setupAction = null
     )
@@ -30,16 +30,5 @@ public static class ServiceExtension
             options.ApiVersionReader = apiVersionReader;
         });
         return services;
-    }
-
-    private static ApiVersionActionOptions GetOptions(IServiceProvider serviceProvider)
-    {
-        var options = serviceProvider.GetService<ApiVersionActionOptions>();
-        if (options == null)
-        {
-            throw new InvalidOperationException("ApiVersionActionOptions not registered.");
-        }
-
-        return options;
     }
 }
